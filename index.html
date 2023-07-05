@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vite + React</title>
+  <style>
+    df-messenger {
+      --df-messenger-bot-message: white;
+      --df-messenger-user-message: white;
+      --df-messenger-button-titlebar-color: #257C76;
+      --df-messenger-chat-background-color: #cffff6;
+      --df-messenger-font-color: #10443e;
+      --df-messenger-send-icon: #10443e;
+      --df-messenger-input-font-color: #10443e;
+      --df-messenger-input-placeholder-font-color: #10443e;
+    }
+
+    .df-img-udea {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: 1000;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .show {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .show img {
+      max-width: 95%;
+      max-height: 95%;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="root"></div>
+  <div class='df-img-udea hidden'></div>
+  <script type="module" src="/src/main.jsx"></script>
+  <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+  <df-messenger intent="WELCOME" chat-title="Ude@bot"
+    chat-icon="https://i.ibb.co/JHskXzL/ARROBA-MIRANDO-DE-FRENTE-BOTON-Mesa-de-trabajo-1.png"
+    agent-id="3010429f-67cb-48e9-823b-88d4066c0c75" language-code="es" wait-open="true"></df-messenger>
+  <script type="module" src="index.js"></script>
+</body>
+
+</html>
