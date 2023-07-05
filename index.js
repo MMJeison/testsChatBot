@@ -12,10 +12,12 @@ import {
   styles_df_description
 } from './assets.js'
 
-import { minimize, maximize } from './utils.js'
-
 const $qs = (selector) => document.querySelector(selector)
 const chatbot = $qs('df-messenger')
+
+// TO DO
+// 1. Configurar para ampliar solo imagenes especificas
+// 2. Intentar agregar vudeos, ampliar y reproducirlos en el chatbot
 
 // funcion para ejecutar cuando se cargue el chatbot
 const handleDFLoaded = () => {
@@ -40,6 +42,35 @@ const handleDFLoaded = () => {
   const df_msg_user_input_styles =
     df_msg_user_input.shadowRoot.querySelector('style')
   df_msg_user_input_styles.innerHTML = styles_df_msg_user_input()
+  // creamos funciones para maximizar/minimizar
+  const maximize = () => {
+    df_msg_styles.innerHTML = styles_df_msg({
+      maxwidth: 2000,
+      minwidth: 2001
+    })
+    df_msg_chat_styles.innerHTML = styles_df_msg_chat({
+      maxwidth: 2000,
+      minwidth: 2001
+    })
+    df_msg_titlebar_styles.innerHTML = styles_df_msg_titlebar({
+      maxwidth: 2000,
+      minwidth: 2001
+    })
+  }
+  const minimize = () => {
+    df_msg_styles.innerHTML = styles_df_msg({
+      maxwidth: 500,
+      minwidth: 501
+    })
+    df_msg_chat_styles.innerHTML = styles_df_msg_chat({
+      maxwidth: 500,
+      minwidth: 501
+    })
+    df_msg_titlebar_styles.innerHTML = styles_df_msg_titlebar({
+      maxwidth: 500,
+      minwidth: 501
+    })
+  }
   // creamos boton para maximizar/minimizar
   const title_wrapper =
     df_msg_titlebar.shadowRoot.querySelector('.title-wrapper')
