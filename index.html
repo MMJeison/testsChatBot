@@ -18,14 +18,14 @@
       --df-messenger-input-placeholder-font-color: #10443e;
     }
 
-    .df-img-udea {
+    .df-img-modal {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
       background: rgba(0, 0, 0, 0.7);
-      z-index: 1000;
+      z-index: 1001;
     }
 
     .hidden {
@@ -47,7 +47,7 @@
 
 <body>
   <div id="root"></div>
-  <div class='df-img-udea hidden'></div>
+  <!-- <div class='df-img-modal hidden'></div> -->
   <script type="module" src="/src/main.jsx"></script>
   <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
   <df-messenger intent="WELCOME" chat-title="Ude@bot"

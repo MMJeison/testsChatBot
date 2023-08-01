@@ -12,15 +12,16 @@ import {
   styles_df_description
 } from './assets.js'
 
+const df_img_hidden = document.createElement('div')
+df_img_hidden.className = 'df-img-modal hidden'
+document.body.appendChild(df_img_hidden)
+
 const $qs = (selector) => document.querySelector(selector)
 const chatbot = $qs('df-messenger')
 
-// TO DO
-// 1. Configurar para ampliar solo imagenes especificas
-// 2. Intentar agregar vudeos, ampliar y reproducirlos en el chatbot
-
 // funcion para ejecutar cuando se cargue el chatbot
 const handleDFLoaded = () => {
+  console.log('inside handleDFLoaded')
   // cargamos los estilos
   const df_msg_styles = chatbot.shadowRoot.querySelector('style')
   df_msg_styles.innerHTML = styles_df_msg()
@@ -45,30 +46,30 @@ const handleDFLoaded = () => {
   // creamos funciones para maximizar/minimizar
   const maximize = () => {
     df_msg_styles.innerHTML = styles_df_msg({
-      maxwidth: 2000,
-      minwidth: 2001
+      mMaxWidth: 2000,
+      mMinWidth: 2001
     })
     df_msg_chat_styles.innerHTML = styles_df_msg_chat({
-      maxwidth: 2000,
-      minwidth: 2001
+      mMaxWidth: 2000,
+      mMinWidth: 2001
     })
     df_msg_titlebar_styles.innerHTML = styles_df_msg_titlebar({
-      maxwidth: 2000,
-      minwidth: 2001
+      mMaxWidth: 2000,
+      mMinWidth: 2001
     })
   }
   const minimize = () => {
     df_msg_styles.innerHTML = styles_df_msg({
-      maxwidth: 500,
-      minwidth: 501
+      mMaxWidth: 500,
+      mMinWidth: 501
     })
     df_msg_chat_styles.innerHTML = styles_df_msg_chat({
-      maxwidth: 500,
-      minwidth: 501
+      mMaxWidth: 500,
+      mMinWidth: 501
     })
     df_msg_titlebar_styles.innerHTML = styles_df_msg_titlebar({
-      maxwidth: 500,
-      minwidth: 501
+      mMaxWidth: 500,
+      mMinWidth: 501
     })
   }
   // creamos boton para maximizar/minimizar
@@ -91,18 +92,18 @@ const handleDFLoaded = () => {
   title_wrapper.appendChild(divWrapperBtns)
 }
 // agregamos evento para cuando se cargue el chatbot
-chatbot.addEventListener('df-messenger-loaded', handleDFLoaded)
+window.addEventListener('df-messenger-loaded', handleDFLoaded)
 //
-const df_img_udea = $qs('.df-img-udea')
+// const df_img_hidden = $qs('.df-img-modal')
 const handleHidden = () => {
-  df_img_udea.className = 'df-img-udea hidden'
+  df_img_hidden.className = 'df-img-modal hidden'
 }
-df_img_udea.addEventListener('click', handleHidden)
+df_img_hidden.addEventListener('click', handleHidden)
 // funcion para ejecutar cuando se reciba una respuesta
 const handleResponseReceived = (event) => {
   console.log('inside handleResponseReceived')
   const queryResult = event.detail.response.queryResult
-  // console.log('queryResult: ', queryResult);
+  console.log('queryResult: ', queryResult)
   if (
     queryResult.fulfillmentMessages &&
     queryResult.fulfillmentMessages.length
@@ -156,9 +157,9 @@ const handleResponseReceived = (event) => {
               for (const image of images) {
                 if (image.src === card.rawUrl) {
                   image.addEventListener('click', () => {
-                    df_img_udea.innerHTML = ''
-                    df_img_udea.className = 'df-img-udea show'
-                    df_img_udea.appendChild(myimg)
+                    df_img_hidden.innerHTML = ''
+                    df_img_hidden.className = 'df-img-modal show'
+                    df_img_hidden.appendChild(myimg)
                   })
                   // break
                 }

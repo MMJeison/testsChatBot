@@ -9,7 +9,7 @@ export const collapseIcon = `
 	</svg>`
 
 export const styles_df_msg = (props = {}) => {
-  const { maxwidth = 500, minwidth = 501 } = props
+  const { mMaxWidth = 500, mMinWidth = 501 } = props
   return `
     .df-messenger-wrapper {
       background-color: white;
@@ -24,7 +24,7 @@ export const styles_df_msg = (props = {}) => {
       position: fixed;
       right: 20px;
       text-decoration: none;
-      z-index: 100;
+      z-index: 1100;
     }
     .df-messenger-wrapper a, .df-messenger-wrapper button {
       cursor: pointer;
@@ -86,12 +86,12 @@ export const styles_df_msg = (props = {}) => {
     button#widgetIcon .df-chat-icon.default.show {
       display: initial;
     }
-    @media screen and (max-width: ${maxwidth}px) {
+    @media screen and (max-width: ${mMaxWidth}px) {
       .expanded > #widgetIcon {
         visibility: hidden;
       }
     }
-    @media screen and (min-width: ${minwidth}px) {
+    @media screen and (min-width: ${mMinWidth}px) {
       .expanded > #widgetIcon {
         visibility: visible;
       }
@@ -117,7 +117,7 @@ export const styles_df_msg = (props = {}) => {
     `
 }
 export const styles_df_msg_chat = (props = {}) => {
-  const { maxwidth = 500, minwidth = 501 } = props
+  const { mMaxWidth = 500, mMinWidth = 501 } = props
   return `
   div.chat-wrapper {
     background-color: #e5e5e5;
@@ -174,7 +174,7 @@ export const styles_df_msg_chat = (props = {}) => {
   df-messenger-titlebar {
     z-index: 2;
   }
-  @media screen and (max-width: ${maxwidth}px) {
+  @media screen and (max-width: ${mMaxWidth}px) {
     div.chat-wrapper {
       bottom: 0;
       right: 0;
@@ -187,7 +187,7 @@ export const styles_df_msg_chat = (props = {}) => {
   `
 }
 export const styles_df_msg_titlebar = (props = {}) => {
-  const { maxwidth = 500, minwidth = 501 } = props
+  const { mMaxWidth = 500, mMinWidth = 501 } = props
   return `
     .title-wrapper {
       align-items: center;
@@ -216,7 +216,7 @@ export const styles_df_msg_titlebar = (props = {}) => {
       margin: 15px;
       transform: rotate(90deg);
     }
-    @media screen and (min-width: ${minwidth}px) {
+    @media screen and (min-width: ${mMinWidth}px) {
       #minimizeIcon {
         visibility: hidden;
       }
@@ -236,7 +236,7 @@ export const styles_df_msg_titlebar = (props = {}) => {
     `
 }
 export const styles_df_msg_list = (props = {}) => {
-  const { maxwidth = 500, minwidth = 501 } = props
+  const { mMaxWidth = 500, mMinWidth = 501 } = props
   return `
     .message-list-wrapper.minimized {
       flex-direction: row;
@@ -384,7 +384,7 @@ export const styles_df_msg_list = (props = {}) => {
     `
 }
 export const styles_df_msg_user_input = (props = {}) => {
-  const { maxwidth = 500, minwidth = 501 } = props
+  const { mMaxWidth = 500, mMinWidth = 501 } = props
   return `
   .input-box-wrapper {
     align-items: center;
@@ -466,7 +466,7 @@ export const styles_df_msg_user_input = (props = {}) => {
   `
 }
 export const styles_df_card_img = (props = {}) => {
-  const { maxwidth = 500, minwidth = 501 } = props
+  const { mMaxWidth = 500, mMinWidth = 501 } = props
   return `
     img {
       border-radius: 8px;
@@ -479,7 +479,7 @@ export const styles_df_card_img = (props = {}) => {
     `
 }
 export const styles_df_card_title = (props = {}) => {
-  const { maxwidth = 500, minwidth = 501 } = props
+  const { mMaxWidth = 500, mMinWidth = 501 } = props
   return `
     .image {
       background-repeat: no-repeat;
@@ -513,7 +513,7 @@ export const styles_df_card_title = (props = {}) => {
     `
 }
 export const styles_df_chips = (props = {}) => {
-  const { maxwidth = 500, minwidth = 501 } = props
+  const { mMaxWidth = 500, mMinWidth = 501 } = props
   return `
     .df-chips-wrapper {
       padding: 10px;
@@ -565,7 +565,7 @@ export const styles_df_chips = (props = {}) => {
     `
 }
 export const styles_df_description = (props = {}) => {
-  const { maxwidth = 500, minwidth = 501 } = props
+  const { mMaxWidth = 500, mMinWidth = 501 } = props
   return `
     .description-line {
       color: rgba(0,0,0,0.87);
