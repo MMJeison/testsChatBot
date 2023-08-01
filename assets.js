@@ -537,9 +537,9 @@ export const styles_df_chips = (props = {}) => {
       display: inline-flex;
       font-family: 'Roboto', sans-serif;
       font-size: large; /* 14px */
-      height: 35px;
+      /* height: 35px; */
       margin: 0 10px 10px 0;
-      padding: 0 16px;
+      padding: 5px 16px; /* 0 16px */
       text-decoration: none;
       vertical-align: bottom;
     }
