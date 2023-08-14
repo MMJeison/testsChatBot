@@ -13,7 +13,14 @@ import {
 } from './assets.js'
 
 const df_img_hidden = document.createElement('div')
-df_img_hidden.className = 'df-img-modal hidden'
+df_img_hidden.style.position = 'fixed'
+df_img_hidden.style.top = '0'
+df_img_hidden.style.left = '0'
+df_img_hidden.style.width = '100%'
+df_img_hidden.style.height = '100%'
+df_img_hidden.style.backgroundColor = 'rgba(0,0,0,0.7)'
+df_img_hidden.style.zIndex = '1200'
+df_img_hidden.style.display = 'none'
 document.body.appendChild(df_img_hidden)
 
 const $qs = (selector) => document.querySelector(selector)
@@ -96,7 +103,7 @@ window.addEventListener('df-messenger-loaded', handleDFLoaded)
 //
 // const df_img_hidden = $qs('.df-img-modal')
 const handleHidden = () => {
-  df_img_hidden.className = 'df-img-modal hidden'
+  df_img_hidden.style.display = 'none'
 }
 df_img_hidden.addEventListener('click', handleHidden)
 // funcion para ejecutar cuando se reciba una respuesta
@@ -153,12 +160,16 @@ const handleResponseReceived = (event) => {
             // console.log('card: ', card);
             if (card.type === 'image') {
               const myimg = document.createElement('img')
+              myimg.style.maxWidth = '95%'
+              myimg.style.maxHeight = '95%'
               myimg.src = card.rawUrl
               for (const image of images) {
                 if (image.src === card.rawUrl) {
                   image.addEventListener('click', () => {
                     df_img_hidden.innerHTML = ''
-                    df_img_hidden.className = 'df-img-modal show'
+                    df_img_hidden.style.display = 'flex'
+                    df_img_hidden.style.justifyContent = 'center'
+                    df_img_hidden.style.alignItems = 'center'
                     df_img_hidden.appendChild(myimg)
                   })
                   // break
